@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#09090c">
+  <meta name="description" content="FN Companion — a simulated Fortnite training and awareness companion.">
+  <title>FN COMPANION</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="FN Companion home">
+        <span class="brand-mark">FN</span>
+        <span><strong>FN COMPANION</strong><small>TRAINING / SIMULATION</small></span>
+      </a>
+      <div class="top-actions">
+        <span class="live-dot">DEMO ONLINE</span>
+        <button class="icon-btn" id="installBtn" title="Install app" aria-label="Install app">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero panel">
+        <div class="hero-copy">
+          <p class="eyebrow">YOUR TRAINING SIDEKICK</p>
+          <h1>LEVEL UP<br><span>YOUR GAME.</span></h1>
+          <p class="muted">Practice awareness, tune your training visuals, and keep your cloud-gaming links close.</p>
+          <div class="hero-tags"><span>SIMULATED DATA</span><span>NO GAME ACCESS</span><span>PWA READY</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="target"><i></i><b></b></div>
+          <span class="art-label">FN / 01</span>
+        </div>
+      </section>
+
+      <nav class="tabs" aria-label="Main navigation">
+        <button class="tab active" data-view="dashboard">Dashboard</button>
+        <button class="tab" data-view="training">Training</button>
+        <button class="tab" data-view="awareness">Awareness</button>
+        <button class="tab" data-view="settings">Settings</button>
+      </nav>
+
+      <section class="view active" id="dashboard">
+        <div class="section-heading"><div><p class="eyebrow">OVERVIEW</p><h2>Command center</h2></div><span class="pill">V1.0.0</span></div>
+        <div class="stats-grid">
+          <article class="stat-card panel"><span class="stat-icon">◎</span><small>TRAINING LEVEL</small><strong id="dashAim">50%</strong><span class="stat-foot">Visual intensity</span></article>
+          <article class="stat-card panel"><span class="stat-icon">⌖</span><small>RADAR TARGETS</small><strong id="dashTargets">3</strong><span class="stat-foot">Simulated entities</span></article>
+          <article class="stat-card panel"><span class="stat-icon">◉</span><small>COMPANION</small><strong id="dashWidget">ON</strong><span class="stat-foot">In-app floating control</span></article>
+        </div>
+        <div class="panel platform-panel">
+          <div class="section-heading compact"><div><p class="eyebrow">CLOUD GAMING</p><h2>Choose your platform</h2></div></div>
+          <div class="platform-row">
+            <div class="platform-logo geforce">G</div><div class="platform-info"><strong>GeForce NOW</strong><small>Cloud gaming service</small></div>
+            <a class="outline-btn" href="https://play.geforcenow.com/" target="_blank" rel="noopener noreferrer">OPEN ↗</a>
+          </div>
+          <div class="platform-row">
+            <div class="platform-logo xbox">X</div><div class="platform-info"><strong>Xbox Cloud Gaming</strong><small>Cloud gaming service</small></div>
+            <a class="outline-btn" href="https://www.xbox.com/play" target="_blank" rel="noopener noreferrer">OPEN ↗</a>
+          </div>
+        </div>
+        <div class="notice"><span>ⓘ</span><p><strong>Companion mode only.</strong> FN Companion does not read, change, or interact with Fortnite or cloud-gaming sessions. All radar contacts and training effects are locally simulated.</p></div>
+      </section>
+
+      <section class="view" id="training">
+        <div class="section-heading"><div><p class="eyebrow">PRACTICE LAB</p><h2>Aim training visualizer</h2></div><span class="pill">SIMULATION</span></div>
+        <div class="panel training-panel">
+          <div class="training-top"><div><small class="muted">TRAINING VISUAL INTENSITY</small><div class="big-value"><strong id="aimValue">50</strong><span>%</span></div></div><span class="mode-chip">DEMO CONTROL</span></div>
+          <input id="aimSlider" class="range" type="range" min="0" max="100" value="50" aria-label="Training visual intensity">
+          <div class="range-labels"><span>0% · LOW</span><span>100% · HIGH</span></div>
+          <div class="aim-stage" id="aimStage">
+            <div class="aim-ring ring-a"></div><div class="aim-ring ring-b"></div><div class="aim-cross"></div>
+            <div class="aim-dot"></div><span class="stage-caption">VISUAL TARGET / CENTER</span>
+          </div>
+          <p class="muted small">This slider changes only the size and glow of the on-screen practice target. It does not provide aim assistance or send inputs to a game.</p>
+          <button class="primary-btn full" id="resetAim">RESET TRAINING VISUAL</button>
+        </div>
+        <div class="panel mini-panel"><div><strong>Practice tip</strong><p class="muted small">Try tracking the center marker smoothly with your eyes, then repeat while varying the visual intensity.</p></div><span class="tip-icon">✦</span></div>
+      </section>
+
+      <section class="view" id="awareness">
+        <div class="section-heading"><div><p class="eyebrow">SITUATIONAL PRACTICE</p><h2>Awareness radar</h2></div><span class="pill">MOCK DATA</span></div>
+        <div class="panel radar-panel">
+          <div class="radar-header"><span>SIMULATED SCENARIO 01</span><span class="radar-status"><i></i> RUNNING</span></div>
+          <div class="radar" id="radar">
+            <div class="radar-sweep"></div><div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div>
+            <div class="radar-axis axis-x"></div><div class="radar-axis axis-y"></div><div class="radar-center"></div>
+            <span class="contact c1" title="Simulated contact 1"></span><span class="contact c2" title="Simulated contact 2"></span><span class="contact c3" title="Simulated contact 3"></span>
+            <span class="radar-you">YOU</span>
+          </div>
+          <div class="radar-legend"><span><i class="legend-dot red"></i>Simulated contact</span><span><i class="legend-dot white"></i>Your position</span></div>
+          <div class="radar-controls"><button class="outline-btn" id="shuffleRadar">RANDOMIZE CONTACTS</button><button class="primary-btn" id="toggleRadar">PAUSE</button></div>
+        </div>
+        <div class="panel contact-list">
+          <div class="section-heading compact"><div><p class="eyebrow">CONTACT LOG</p><h2>Nearby indicators</h2></div><span class="pill" id="contactCount">03 CONTACTS</span></div>
+          <div id="contactRows"></div>
+        </div>
+        <p class="muted small footnote">All positions are randomly generated demo coordinates. They are not connected to live players, Fortnite, or any game telemetry.</p>
+      </section>
+
+      <section class="view" id="settings">
+        <div class="section-heading"><div><p class="eyebrow">PERSONALIZATION</p><h2>Settings dashboard</h2></div><span class="pill">LOCAL</span></div>
+        <div class="panel settings-panel">
+          <div class="setting-block">
+            <div class="setting-title"><div><strong>Floating companion</strong><small>Show the draggable quick button inside this app</small></div><label class="switch"><input type="checkbox" id="widgetEnabled" checked><span></span></label></div>
+            <div class="setting-title"><div><strong>Button opacity</strong><small>Adjust the companion button transparency</small></div><b id="opacityValue">92%</b></div>
+            <input class="range" type="range" id="opacitySlider" min="20" max="100" value="92">
+            <div class="setting-title"><div><strong>Button size</strong><small>Change the floating button diameter</small></div><b id="sizeValue">56 px</b></div>
+            <input class="range" type="range" id="sizeSlider" min="44" max="76" value="56">
+          </div>
+          <div class="setting-block">
+            <div class="setting-title"><div><strong>Button position</strong><small>Choose its default screen edge</small></div></div>
+            <div class="segmented"><button class="selected" data-position="right">RIGHT</button><button data-position="left">LEFT</button></div>
+          </div>
+          <div class="setting-block">
+            <div class="setting-title"><div><strong>Radar animation</strong><small>Animate the simulated radar sweep</small></div><label class="switch"><input type="checkbox" id="radarMotion" checked><span></span></label></div>
+          </div>
+          <div class="setting-block install-block">
+            <div><strong>Install FN Companion</strong><small>Add the app to your Android home screen. No APK required.</small></div>
+            <button class="primary-btn full" id="settingsInstall">DOWNLOAD / INSTALL PWA</button>
+            <p class="muted tiny" id="installHelp">On supported browsers, use Install. Otherwise open your browser menu and choose “Add to Home screen”.</p>
+          </div>
+          <button class="danger-btn full" id="resetSettings">RESET ALL SETTINGS</button>
+        </div>
+      </section>
+    </main>
+
+    <div class="floating-wrap" id="floatingWrap">
+      <div class="floating-menu" id="floatingMenu" hidden>
+        <button data-jump="training">✦ Training lab</button>
+        <button data-jump="awareness">⌖ Awareness radar</button>
+        <button data-jump="settings">⚙ Settings</button>
+      </div>
+      <button class="floating-button" id="floatingButton" aria-label="Open companion menu" aria-expanded="false"><span>FN</span><i></i></button>
+    </div>
+    <footer><span>FN COMPANION</span><span>BUILT FOR PRACTICE · NOT GAMEPLAY MODIFICATION</span></footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
